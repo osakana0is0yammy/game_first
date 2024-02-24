@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お酒詳細画面</title>
+    <link rel="stylesheet" href="{% static 'hello/css/text.css' %}">
+</head>
+<body bgcolor="#111">
+
+  <!-- 以下が画面上に表示されるボタンコード -->
+
+  <div class="container">
+
+    <div class="container1">
+      <!-- a href="#"で画面移行されないそのままの画面 -->
+      <a href="#" class="button button--1">HOME</a>
+      <a href="#" class="button button--1">参考サイト</a>
+    </div>
+ 
+  </div>
+
+<!-- お酒詳細の箇所コード -->
+  <a href="#" class="button2 button--2">
+    <table align = "center">
+      <tr>
+          <td>
+            <div align="left">No.3</div>
+            <div align="center">カクテル名</div><br>
+            <div class="kakuteru" align="center">ジントニック</div><br>
+            <div align="center"><img src="./IMG_3173.jpg" width="200px"></div>
+            <div align="center">材料
+              <br>
+              <div class="ingredient">ジン・トニック・ライム</div>
+              <br>
+            </div>
+            <div align="center">度数
+              <br>
+              <div class="ingredient">7~10%</div>
+              <br>
+            </div>
+            <div align="center">作り方
+              <br>
+              <div class="ingredient">
+                ・氷を入れたグラスにジンを注ぐ
+                <br>
+                ・トニックを入れる
+                <br>
+                ・ライムを入れる
+                <br>
+                ・軽く混ぜる
+              </div>
+            </div>
+          </td> 
+      </tr>
+    </table>
+  </a>
+
+<br><br><br>
+
+<!-- ベースが一緒のカクテルを表示させるコード -->
+  <div align="center" class="liqueur">
+    ジン ベースのカクテル<br>
+
+  </div>
+
+
+
+  <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br>
+ 
+
+
+
+
+    
+</body>
+</html>

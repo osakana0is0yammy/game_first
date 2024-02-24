@@ -1,0 +1,49 @@
+{% block content %}
+{% load static %}
+
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title><!--ウェブサイト上部の説明欄てきな-->
+    <link rel="stylesheet" href="{% static 'ran/text.css' %}" />
+</head>
+<body bgcolor="#111">
+    <!-- 以下が画面上に表示されるボタンコード -->
+    <br><br>
+    <div class="container">
+        <div class="container1">
+            <a href="{% url 'user' %}" class="button button--1">myapage</a>
+            <a href="{% url 'whogood' %}" class="button button--1">いいね欄</a>
+            <a href="{% url 'mypage' %}"  class="button button--1">フォロー欄</a>
+        </div>
+    </div>
+
+    <br>
+    <div align="center" >
+        <font color = "#555">
+
+            <div class="an"></div>
+            {% for item in data %}
+            <p><font size = "7">{{item.content}}</font></p>
+            {% endfor %}
+            <br><br><br<br><br>
+            <script>
+
+
+            //更新
+            function koshin(){
+            location.reload();
+            }
+
+            </script>
+
+
+            <input type="button"  value="次へ" onclick="koshin()" class="button button--3">
+            </div>
+            {% endblock %}
+        </font>
+    </div>
+
+</body>
+</html>

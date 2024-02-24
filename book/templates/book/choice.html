@@ -1,0 +1,48 @@
+{% block content %}
+{% load static %}
+
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title><!--ウェブサイト上部の説明欄てきな-->
+    <link rel="stylesheet" type="text/css" href="{% static 'ran/text.css' %}" />
+   
+
+</head>
+<body bgcolor="#111">
+    <!-- 以下が画面上に表示されるボタンコード -->
+  
+    <br><br>
+    <div class="container">
+        <div class="container1">
+            <a href="{% url 'user' %}" class="button button--1">myapage</a>
+            <a href="{% url 'post' %}" class="button button--1">削除</a>
+            <a href="{% url 'mypage' %}"  class="button button--1">フォロー欄</a>
+        </div>
+    </div>
+<div class="an"></div>
+<br>
+<br>
+<br>
+
+
+<div align = "center">
+    <table>
+        <tr>
+            <td><a href="{% url 'content' data.id %}" class="button button--2">{{data.odai}}</td>
+        </tr>
+    </table>
+
+    <br><br><br>
+
+    <div>
+        <font color = "#555"><font size = "6"> 
+            上記のタイトルを選択したら、お題を決める画面に移動します。
+        </font></font>
+    </div>
+</div>
+{% endblock %}
+
+</body>
+</html>

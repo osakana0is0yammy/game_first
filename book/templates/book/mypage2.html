@@ -1,0 +1,77 @@
+{% block content %}
+{% load static %}
+
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title><!--ウェブサイト上部の説明欄てきな-->
+    <link rel="stylesheet" href="{% static 'ran/text.css' %}" />
+</head>
+<body bgcolor="#111">
+    <!-- 以下が画面上に表示されるボタンコード -->
+<br><br>
+    <div class="container">
+        <div class="container1">
+            <a href="{% url 'user' %}" class="button button--1">myapage</a>
+            <a href="{% url 'whogood' %}" class="button button--1">いいね欄</a>
+            <a href="{% url 'mypage' %}"  class="button button--1">フォロー欄</a>
+        </div>
+    </div>
+
+    <br>
+<div class="an"></div>
+
+    <div align="center">
+        <font color = "#555">
+            <font size = "6">
+                ユーザ検索はこちら<br><br>
+            </font>
+            <font size = "5">
+                <font color = "#660033">
+                    {% for message in messages %}
+                    <div {% if message.tags %}class="{{message.tags}}"{% endif %} >
+                        {{message}}
+                    </div>
+                    {% endfor %}
+                </font>
+            </font>
+            <br>
+    <ul>
+
+            <form action="{% url 'mypage2' %}" method="post">
+                {% csrf_token%}
+                <input type = "hidden" name="mode" value="_userform_">
+                {{userform}}
+                <button>検索</button>
+            </form>
+            <br><br>
+        </font>
+
+        {% for item in data %}
+        <script src="https://code.jquery.com/jquery.min.js"></script>
+        <script>
+        $(function() {
+            $(".follow").click(function() {
+                $(this).toggleClass("click");
+            });
+        });
+        </script>
+
+
+        <table>
+            <tr>
+            <td>
+                <a href="{% url 'add' %}?name={{item.username}}" class="button3 button--3">
+                    <div align="center">
+                        {{item.username}}をfollowする
+            </td>
+            </tr>
+        </table>
+        <br>
+        {% endfor %}
+    
+    </div>
+    {% endblock %}
+</body>
+</html>

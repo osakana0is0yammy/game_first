@@ -1,0 +1,50 @@
+<!--フォロー欄管理画面-->
+
+{% load static %}
+
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title><!--ウェブサイト上部の説明欄てきな-->
+    <link rel="stylesheet" type="text/css" href="{% static 'ran/text.css' %}" />
+   
+
+</head>
+<body bgcolor="#111">
+    <!-- 以下が画面上に表示されるボタンコード -->
+  
+    <br><br>
+    <div class="container">
+        <div class="container1">
+            <a href="{% url 'user' %}" class="button button--1">myapage</a>
+            <a href="{% url 'mypage' %}"  class="button button--1">フォロー欄</a>
+        </div>
+    </div>
+    
+    <div align = "center">
+        <br><br><br<br>
+        <font color = "#555">
+            <font size = "5">
+                以下のユーザのフォローを消去します
+            </font>
+        </font>
+        <br><br>
+    
+        <font color = "##000066">
+            <font size = "7">
+                {{data.follow}}
+            </font>
+        </font>
+        <br><br><br><br>
+        
+                <form action="{% url 'deleteuser' id %}" method="post">
+                    {% csrf_token %}
+                   <input type="submit" style="width: 400px;" value="消去確定" class="button button--2">
+                </form>
+    
+    
+    </div>
+
+</body>
+</html>

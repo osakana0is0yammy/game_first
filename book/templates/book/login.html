@@ -1,0 +1,39 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>ログイン</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'ran/text_index.css' %}" />
+    <br>
+    <br>
+    <br>
+    <br>
+</head>
+<body>
+    <div align="center">
+        <body bgcolor="#111">
+            <!-- 以下が画面上に表示されるボタンコード -->
+          
+            <div class="container">
+                <div class="container1">
+                    <h1><font color = "#555">ログイン</font></h1>
+
+                    <ul>
+                        <font color = "#555">
+                            <form action="{% url 'login' %}" method="post">
+                            {% csrf_token %}
+                                {{ form.as_p }}
+                                <p><input type="submit" value="ログイン" class="button button--3"></p>
+                            </form>
+                            </ul>
+                            <br>
+                            <br>
+                            <a href="{% url 'signup' %}" class="button button--1">未登録の方はこちら</a>
+                        </font>
+                </div>
+            </div>
+
+    </div>
+</body>
+</html>

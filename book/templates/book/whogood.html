@@ -1,0 +1,64 @@
+{% block content %}
+{% load static %}
+
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title><!--ウェブサイト上部の説明欄てきな-->
+    <link rel="stylesheet" href="{% static 'ran/text.css' %}" />
+</head>
+
+<body bgcolor="#111">
+    <!-- 以下が画面上に表示されるボタンコード -->
+  
+    <br><br>
+    <div class="container">
+        <div class="container1">
+            <a href="{% url 'user' %}" class="button button--1">myapage</a>
+            <a href="{% url 'whogood' %}" class="button button--1">いいね欄</a>
+            <a href="{% url 'mypage' %}"  class="button button--1">フォロー欄</a>
+        </div>
+    </div>
+
+    <br>
+    <div class="an"></div>
+    <div class="an1"></div>
+
+    <div align="center">
+        <font color = "#555">
+            <p><font size = "6">お気に入り</font></p>
+
+            <!-- <div class="an123"></div>
+                    <form action="{% url 'whogood' %}" method="post">
+                    {% csrf_token%}
+                    <input type = "hidden" name="mode" value="_userform_">
+                    {{userform}}
+                    <button>検索</button>
+                    </form>
+            </div> -->
+
+        </font>
+    <br><br>
+
+    <div align="center">
+        {% for item in datas %}
+        <table>
+            <tr>
+            <td>
+                <a href="{% url 'startt' item.id%}" class="button3 button--3">
+                    <div align="center">
+                        <p>作成者：{{item.user}}</p>
+                    <p>いいねしたお題：{{item.odai}}</p>
+            </td>
+            </tr>
+        </table>
+        <br><br>
+    {% endfor %}
+        
+
+    {% endblock %}
+    </div>
+</div>
+</body>
+</html>

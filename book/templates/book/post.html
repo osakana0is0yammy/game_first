@@ -1,0 +1,59 @@
+<!--登録済み-->
+{% load static %}
+
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title><!--ウェブサイト上部の説明欄てきな-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'ran/text.css' %}" />
+</head>
+<body bgcolor="#111">
+    <!-- 以下が画面上に表示されるボタンコード -->
+
+    <br><br>
+    <div class="container">
+        <div class="container1">
+            <a href="{% url 'user' %}" class="button button--1">myapage</a>
+            <a href="{% url 'whogood' %}" class="button button--1">いいね欄</a>
+            <a href="{% url 'mypage' %}"  class="button button--1">フォロー欄</a>
+        </div>
+    </div>
+
+
+        <br><br><br>
+         
+    <div class="an"></div>
+         
+         <div class="an1"></div>
+         <div align="center">
+            <p><font size = "6"><font color = "#555">削除をしたい時はこちら</font></font></p>
+
+            <br><br>
+                
+                {% for message in messages %}
+                <div {% if message.tags %}class="{{message.tags}}"{% endif %} >{{message}}</div>
+                {% endfor %}
+                
+                {% for item in data %}
+                </table>
+                <table>
+                    <tr>
+                    <td>
+                        <a href="{% url 'startt' item.id%}" class="button2 button--2">
+                                <div class="title "align="center">{{item.odai}}</div>
+                                    <a href="{% url 'delete' item.id%}" text-decoration: none>
+                                        <font size = "4"><font color = "white">ゲーム削除はこちら</font></font>
+                                    </a>
+                                </div>
+                    </td>
+                    </tr>
+                </table>
+                <br><br>
+                {% endfor %}
+        </div>
+
+    
+</body>
+</html>

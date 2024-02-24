@@ -1,0 +1,27 @@
+<!--初期画面．選択-->
+{% load static %}
+
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title><!--ウェブサイト上部の説明欄てきな-->
+    <link rel="stylesheet" type="text/css" href="{% static 'ran/text_index.css' %}" />
+
+</head>
+<body bgcolor="#111">
+    <br><br><br><br><br>
+    <div align = "center">
+        <div class="container">
+            <div class="container1">
+                <a href="{% url 'index' %}" class="button button--1"><div align = "center">開発中</div></a><br>
+                <a href="{% url 'index' %}" class="button button--1"><div align = "center">開発中</div></a><br>
+                <a href="{% url 'index' %}" class="button button--2"><div align = "center">お酒<br>危機一髪</div></a><br>
+                <a href="{% url 'login' %}"  class="button button--3"><div align = "center">mypageは<br>こちら</div></a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+

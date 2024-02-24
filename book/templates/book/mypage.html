@@ -1,0 +1,57 @@
+{% block content %}
+{% load static %}
+
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title><!--ウェブサイト上部の説明欄てきな-->
+    <link rel="stylesheet" href="{% static 'ran/text.css' %}" />
+</head>
+<body bgcolor="#111">
+    <!-- 以下が画面上に表示されるボタンコード -->
+
+    <br><br>
+    <div class="container">
+        <div class="container1">
+            <a href="{% url 'user' %}" class="button button--1">myapage</a>
+            <a href="{% url 'whogood' %}" class="button button--1">いいね欄</a>
+            <a href="{% url 'mypage2' %}"  class="button button--1">ユーザを探す</a>
+        </div>
+    </div>
+         <br>
+         
+         <div class="an"></div>
+         
+         <div class="an1"></div>
+         <div align="center">
+            <p><font color = "#555">フォローリスト</font></p>
+            
+
+                
+                {% for message in messages %}
+                <div {% if message.tags %}class="{{message.tags}}"{% endif %} >{{message}}</div>
+                {% endfor %}
+                
+                {% for item in datas %}
+                </table>
+                <table>
+                    <tr>
+                    <td>
+                        <a href="{% url 'followOdai' item.id%}" class="button2 button--2">
+                                <div class="title "align="center">{{item.follow}}</div>
+                                    <a href="{% url 'deleteuser' item.id%}" text-decoration: none>
+                                        <font size = "4"><font color = "white">フォロー削除はこちら</font></font></a>
+                                </div>
+                    </td>
+                    </tr>
+                </table>
+                <br><br>
+                {% endfor %}
+         </div>
+</div>
+
+
+{% endblock %}
+</body>
+</html>

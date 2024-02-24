@@ -1,0 +1,58 @@
+{% block content %}
+{% load static %}
+
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お酒GAME</title><!--ウェブサイト上部の説明欄てきな-->
+    <link rel="stylesheet" href="{% static 'ran/text.css' %}" />
+</head>
+<body bgcolor="#111">
+    <!-- 以下が画面上に表示されるボタンコード -->
+    <br><br>
+    <div class="container">
+        <div class="container1">
+            <a href="{% url 'index' %}" class="button button--1">初期画面</a>
+            <a href="{% url 'new' %}" class="button button--1">投稿</a>
+            <a href="{% url 'whogood' %}" class="button button--1">いいね欄</a>
+            <a href="{% url 'mypage' %}"  class="button button--1">フォロー欄</a>
+        </div>
+    </div>
+
+    <br>
+<div class="an"></div>
+<div align = "center">
+    <font color = #555>
+        <font size = "6">
+            フォローしている人の投稿
+        </font>
+    <br>
+        -----------------------
+    </font>
+</div>
+
+    <div align="center">
+    {% for item in data %}
+        <table>
+            <tr>
+            <td>
+                <a href="{% url 'startt' item.id%}" class="button2 button--2">
+                    <div align="center">
+                        <p>作成者：{{item.user}}</p>
+                        <p>ゲームタイトル：{{item.odai}}</p>
+            </td>
+            </tr>
+        </table>
+            <br><br>
+        {% endfor %}
+        
+    </div>
+</div>
+  
+
+{% endblock %}
+</div>
+</body>
+</html>
